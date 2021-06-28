@@ -83,7 +83,21 @@ namespace UlearnMeExercises
 
             public static int GetClockArrowsAngle(uint hour)
             {
-                return 0;
+                if (hour >= 24)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(hour));
+                }
+
+                const int degreesPerHour = 30;
+                const int maxClockHour = 12;
+                int clockHour = (int)hour % 12;
+
+                if (clockHour <= 6)
+                {
+                    return clockHour * degreesPerHour;
+                }
+
+                return (maxClockHour - clockHour) * degreesPerHour;
             }
         }
     }
