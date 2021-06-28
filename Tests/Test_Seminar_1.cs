@@ -28,7 +28,7 @@ namespace Tests
         [TestCase("TENET", "TENET")]
         public void TestReverseText(string text, string expected)
         {
-            Assert.AreEqual(Seminar1.Solution.ReverseText(text), expected);
+            Assert.AreEqual(expected, Seminar1.Solution.ReverseText(text));
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace Tests
         [TestCase(1234567890, 987654321)]
         public void TestRotateInteger(int number, int expected)
         {
-            Assert.AreEqual(Seminar1.Solution.RotateInteger(number), expected);
+            Assert.AreEqual(expected, Seminar1.Solution.RotateInteger(number));
         }
 
         [Test]
@@ -65,7 +65,7 @@ namespace Tests
         [TestCase(23u, 30)]
         public void TestClockArrowsAngle(uint hour, int expectedAngle)
         {
-            Assert.AreEqual(Seminar1.Solution.GetClockArrowsAngle(hour), expectedAngle);
+            Assert.AreEqual(expectedAngle, Seminar1.Solution.GetClockArrowsAngle(hour));
         }
 
         [Test]
