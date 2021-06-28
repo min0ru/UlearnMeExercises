@@ -123,10 +123,24 @@ namespace UlearnMeExercises
                 return (maxClockHour - clockHour) * degreesPerHour;
             }
 
+            /// <summary>
+            /// Count numbers that is divided by both "x" and "y" in range (0, n].
+            /// </summary>
+            /// <param name="x">First Divisor</param>
+            /// <param name="y">Second Divisor</param>
+            /// <param name="n">Range (0, n] to search for divided numbers</param>
+            /// <returns>Resulting count of divided numbers</returns>
             public static uint CountCommonDividedInRange(uint x, uint y, uint n)
             {
-                // TODO: Implement Me!
-                return 0;
+                uint count = 0;
+                long commonDivisor = x * y;
+                long currentNumber = commonDivisor;
+                while (currentNumber <= n)
+                {
+                    count++;
+                    currentNumber += commonDivisor;
+                }
+                return count;
             }
         }
     }
