@@ -60,6 +60,29 @@ namespace UlearnMeExercises
                 Console.WriteLine($"Clocks arrows angle at hour {hour} is {angle}");
             }
         }
+        
+        /// <summary>
+        /// Expr4.
+        /// Найти количество чисел меньших N, которые имеют простые делители X или Y.
+        /// </summary>
+        public static void Exercise4()
+        {
+            Console.WriteLine("=> Exercise 4 demo");
+
+            foreach (var (x, y, n) in new[]
+            {
+                (1u, 1u, 100u),
+                (2u, 3u, 10u),
+                (3u, 5u, 100u),
+                (5u, 3u, 100u),
+                (6u, 7u, 500u),
+            })
+            {
+                uint count = Solution.CountCommonDividedInRange(x, y, n);
+                Console.WriteLine(
+                    $"Count of commonly divided numbers for range {n,3} and divisors {x,3}, {y,3} is {count,3}");
+            }
+        }
 
         public class Solution
         {
@@ -90,7 +113,7 @@ namespace UlearnMeExercises
 
                 const int degreesPerHour = 30;
                 const int maxClockHour = 12;
-                int clockHour = (int)hour % 12;
+                int clockHour = (int) hour % 12;
 
                 if (clockHour <= 6)
                 {
@@ -98,6 +121,12 @@ namespace UlearnMeExercises
                 }
 
                 return (maxClockHour - clockHour) * degreesPerHour;
+            }
+
+            public static uint CountCommonDividedInRange(uint x, uint y, uint n)
+            {
+                // TODO: Implement Me!
+                return 0;
             }
         }
     }

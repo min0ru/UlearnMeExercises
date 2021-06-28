@@ -80,5 +80,34 @@ namespace Tests
                 delegate { Seminar1.Solution.GetClockArrowsAngle(hour); }
             );
         }
+
+        [TestCase(1u, 1u, 0u, 0u)]
+        [TestCase(1u, 1u, 1u, 1u)]
+        [TestCase(1u, 1u, 10u, 10u)]
+        [TestCase(1u, 10u, 10u, 1u)]
+        [TestCase(1u, 10u, 20u, 2u)]
+        [TestCase(1u, 10u, 100u, 2u)]
+        [TestCase(10u, 1u, 10u, 1u)]
+        [TestCase(10u, 1u, 20u, 2u)]
+        [TestCase(10u, 1u, 100u, 2u)]
+        [TestCase(2u, 3u, 0u, 0u)]
+        [TestCase(2u, 3u, 1u, 0u)]
+        [TestCase(2u, 3u, 2u, 0u)]
+        [TestCase(2u, 3u, 3u, 0u)]
+        [TestCase(2u, 3u, 6u, 1u)]
+        [TestCase(2u, 3u, 7u, 1u)]
+        [TestCase(2u, 3u, 11u, 1u)]
+        [TestCase(2u, 3u, 12u, 2u)]
+        [TestCase(2u, 3u, 13u, 2u)]
+        [TestCase(2u, 3u, 18u, 3u)]
+        [TestCase(2u, 3u, 19u, 3u)]
+        [TestCase(2u, 3u, 24u, 4u)]
+        [TestCase(5u, 3u, 100u, 6u)]
+        [TestCase(3u, 5u, 100u, 6u)]
+        [Test]
+        public void TestCountCommonDevisorsInRange(uint x, uint y, uint n, uint expected)
+        {
+            Assert.AreEqual(expected, Seminar1.Solution.CountCommonDividedInRange(x, y, n));
+        }
     }
 }
