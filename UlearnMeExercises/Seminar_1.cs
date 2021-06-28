@@ -20,12 +20,12 @@ namespace UlearnMeExercises
 
             int first = 10, second = 20;
             Console.WriteLine($"Variables before exchange: {first} {second}");
-            (first, second) = Solution.SwapVariables(first, second);
+            (first, second) = Solution.Swap(first, second);
             Console.WriteLine($"Variables after exchange: {first} {second}");
 
             string sFirst = "Hello,", sSecond = "Sailor!";
             Console.WriteLine($"Variables before exchange: {sFirst} {sSecond}");
-            (sFirst, sSecond) = Solution.SwapVariables(sFirst, sSecond);
+            (sFirst, sSecond) = Solution.Swap(sFirst, sSecond);
             Console.WriteLine($"Variables after exchange: {sFirst} {sSecond}");
         }
 
@@ -56,7 +56,7 @@ namespace UlearnMeExercises
             Console.WriteLine("=> Exercise 3 demo");
             foreach (var hour in new[] {0u, 1u, 3u, 6u, 9u, 12u, 15u})
             {
-                int angle = Solution.GetClockArrowsAngle(hour);
+                int angle = Solution.MeasureClockArrowsAngle(hour);
                 Console.WriteLine($"Clocks arrows angle at hour {hour} is {angle}");
             }
         }
@@ -86,7 +86,7 @@ namespace UlearnMeExercises
 
         public class Solution
         {
-            public static (T, T) SwapVariables<T>(T first, T second)
+            public static (T, T) Swap<T>(T first, T second)
             {
                 (first, second) = (second, first);
                 return (first, second);
@@ -104,7 +104,7 @@ namespace UlearnMeExercises
                 return int.Parse(textRepresentation);
             }
 
-            public static int GetClockArrowsAngle(uint hour)
+            public static int MeasureClockArrowsAngle(uint hour)
             {
                 if (hour >= 24)
                 {

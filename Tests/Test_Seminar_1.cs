@@ -13,9 +13,9 @@ namespace Tests
         [TestCase(true, false)]
         public void TestSwapVariables<T>(T first, T second)
         {
-            var (swappedFirst, swappedSecond) = Seminar1.Solution.SwapVariables(first, second);
-            Assert.AreEqual(first, swappedSecond);
-            Assert.AreEqual(second, swappedFirst);
+            var (newFirst, newSecond) = Seminar1.Solution.Swap(first, second);
+            Assert.AreEqual(first, newSecond);
+            Assert.AreEqual(second, newFirst);
         }
 
         [Test]
@@ -65,7 +65,7 @@ namespace Tests
         [TestCase(23u, 30)]
         public void TestClockArrowsAngle(uint hour, int expectedAngle)
         {
-            Assert.AreEqual(expectedAngle, Seminar1.Solution.GetClockArrowsAngle(hour));
+            Assert.AreEqual(expectedAngle, Seminar1.Solution.MeasureClockArrowsAngle(hour));
         }
 
         [Test]
@@ -77,7 +77,7 @@ namespace Tests
         public void TestGetClockArrowsAngleParameterRange(uint hour)
         {
             Assert.Throws<ArgumentOutOfRangeException>(
-                delegate { Seminar1.Solution.GetClockArrowsAngle(hour); }
+                delegate { Seminar1.Solution.MeasureClockArrowsAngle(hour); }
             );
         }
 
