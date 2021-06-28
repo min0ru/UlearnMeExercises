@@ -45,6 +45,22 @@ namespace UlearnMeExercises
             }
         }
 
+        /// <summary>
+        /// Expr3.
+        /// Задано время Н часов (ровно).
+        /// Вычислить угол в градусах между часовой и минутной стрелками.
+        /// Например, 5 часов -> 150 градусов, 20 часов -> 120 градусов. Не использовать циклы.
+        /// </summary>
+        public static void Exercise3()
+        {
+            Console.WriteLine("=> Exercise 3 demo");
+            foreach (var hour in new[] {0u, 1u, 3u, 6u, 9u, 12u, 15u})
+            {
+                int angle = Solution.GetClockArrowsAngle(hour);
+                Console.WriteLine($"Clocks arrows angle at hour {hour} is {angle}");
+            }
+        }
+
         public class Solution
         {
             public static (T, T) SwapVariables<T>(T first, T second)
@@ -63,6 +79,11 @@ namespace UlearnMeExercises
                 string textRepresentation = number.ToString();
                 textRepresentation = ReverseText(textRepresentation);
                 return int.Parse(textRepresentation);
+            }
+
+            public static int GetClockArrowsAngle(uint hour)
+            {
+                return 0;
             }
         }
     }

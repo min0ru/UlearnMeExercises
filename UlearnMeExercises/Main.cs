@@ -9,6 +9,7 @@
         {
             Seminar1.Exercise1();
             Seminar1.Exercise2();
+            Seminar1.Exercise3();
         }
     }
 }
