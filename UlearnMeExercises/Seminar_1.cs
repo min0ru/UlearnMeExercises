@@ -60,7 +60,7 @@ namespace UlearnMeExercises
                 Console.WriteLine($"Clocks arrows angle at hour {hour} is {angle}");
             }
         }
-        
+
         /// <summary>
         /// Expr4.
         /// Найти количество чисел меньших N, которые имеют простые делители X или Y.
@@ -91,7 +91,7 @@ namespace UlearnMeExercises
         public static void Exercise5()
         {
             Console.WriteLine("=> Exercise 5 demo");
-            
+
             var exampleYearRanges = new[]
             {
                 (2000u, 2012u),
@@ -100,8 +100,8 @@ namespace UlearnMeExercises
                 (2000u, 2100u),
                 (1900u, 3000u),
             };
-            
-            foreach(var (begin, end) in exampleYearRanges)
+
+            foreach (var (begin, end) in exampleYearRanges)
             {
                 var leapYearsCount = Solution.CountLeapYearsInRange(begin, end);
                 Console.WriteLine($"Number of leap years in range ({begin}, {end}) is {leapYearsCount}");
@@ -164,6 +164,7 @@ namespace UlearnMeExercises
                     count++;
                     currentNumber += commonDivisor;
                 }
+
                 return count;
             }
 
@@ -181,20 +182,15 @@ namespace UlearnMeExercises
                 }
 
                 uint count = 0;
+
                 for (uint year = begin; year <= end; year++)
                 {
-                    if (year % 100 == 0)
-                    {
-                        if (year % 400 == 0)
-                        {
-                            count++;
-                        }
-                    }
-                    else if (year % 4 == 0)
+                    if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0)))
                     {
                         count++;
                     }
                 }
+
                 return count;
             }
         }
