@@ -175,8 +175,27 @@ namespace UlearnMeExercises
             /// <returns>Number of leap years</returns>
             public static uint CountLeapYearsInRange(uint begin, uint end)
             {
-                // TODO: Implement Me!
-                return 0;
+                if (end < begin)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(end));
+                }
+
+                uint count = 0;
+                for (uint year = begin; year <= end; year++)
+                {
+                    if (year % 100 == 0)
+                    {
+                        if (year % 400 == 0)
+                        {
+                            count++;
+                        }
+                    }
+                    else if (year % 4 == 0)
+                    {
+                        count++;
+                    }
+                }
+                return count;
             }
         }
     }
