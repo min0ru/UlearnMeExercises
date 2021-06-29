@@ -111,7 +111,6 @@ namespace Tests
         }
 
         [Test]
-        [TestCase(1000u, 0u, 0u)]
         [TestCase(0u, 0u, 1u)]
         [TestCase(2000u, 2004u, 2u)]
         [TestCase(2000u, 2020u, 6u)]
@@ -125,6 +124,15 @@ namespace Tests
         public void TestCountLeapYearsInRange(uint begin, uint end, uint expected)
         {
             Assert.AreEqual(expected, Seminar1.Solution.CountLeapYearsInRange(begin, end));
+        }
+
+        [Test]
+        [TestCase(1000u, 0u)]
+        [TestCase(1997u, 1996u)]
+        public void TestCountLeapYearsInRangeOutOfRangeArguments(uint begin, uint end)
+        {
+            Assert.Trows<ArgumentOutOfRangeException>(
+                delegate { Seminar1.Solution.CountLeapYearsInRange(begin, end); });
         }
     }
 }
