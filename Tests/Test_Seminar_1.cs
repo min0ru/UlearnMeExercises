@@ -114,12 +114,12 @@ namespace Tests
         [TestCase(0u, 0u, 1u)]
         [TestCase(2000u, 2004u, 2u)]
         [TestCase(2000u, 2020u, 6u)]
-        [TestCase(2000u, 2999u, 25u)]
+        [TestCase(2000u, 2100u, 24u)]
         [TestCase(1901u, 1999u, 24u)]
         [TestCase(1932u, 1936u, 2u)]
         [TestCase(1932u, 1937u, 2u)]
         [TestCase(1932u, 1939u, 2u)]
-        [TestCase(1932u, 1940u, 2u)]
+        [TestCase(1932u, 1940u, 3u)]
         [TestCase(1900u, 3000u, 266u)]
         public void TestCountLeapYearsInRange(uint begin, uint end, uint expected)
         {
