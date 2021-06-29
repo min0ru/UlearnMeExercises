@@ -84,6 +84,30 @@ namespace UlearnMeExercises
             }
         }
 
+        /// <summary>
+        /// Expr5.
+        /// Найти количество високосных лет на отрезке [a, b] не используя циклы.
+        /// </summary>
+        public static void Exercise5()
+        {
+            Console.WriteLine("=> Exercise 5 demo");
+            
+            var exampleYearRanges = new[]
+            {
+                (2000u, 2012u),
+                (2000u, 2021u),
+                (1000u, 3000u),
+                (2000u, 2100u),
+                (1900u, 3000u),
+            };
+            
+            foreach(var (begin, end) in exampleYearRanges)
+            {
+                var leapYearsCount = Solution.CountLeapYearsInRange(begin, end);
+                Console.WriteLine($"Number of leap years in range ({begin}, {end}) is {leapYearsCount}");
+            }
+        }
+
         public class Solution
         {
             public static (T, T) Swap<T>(T first, T second)
@@ -141,6 +165,18 @@ namespace UlearnMeExercises
                     currentNumber += commonDivisor;
                 }
                 return count;
+            }
+
+            /// <summary>
+            /// Count number of leap years in dates range [begin, end].
+            /// </summary>
+            /// <param name="begin">Begin year</param>
+            /// <param name="end">End year</param>
+            /// <returns>Number of leap years</returns>
+            public static uint CountLeapYearsInRange(uint begin, uint end)
+            {
+                // TODO: Implement Me!
+                return 0;
             }
         }
     }

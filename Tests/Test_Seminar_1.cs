@@ -81,6 +81,7 @@ namespace Tests
             );
         }
 
+        [Test]
         [TestCase(1u, 1u, 0u, 0u)]
         [TestCase(1u, 1u, 1u, 1u)]
         [TestCase(1u, 1u, 10u, 10u)]
@@ -104,10 +105,26 @@ namespace Tests
         [TestCase(2u, 3u, 24u, 4u)]
         [TestCase(5u, 3u, 100u, 6u)]
         [TestCase(3u, 5u, 100u, 6u)]
-        [Test]
         public void TestCountCommonDevisorsInRange(uint x, uint y, uint n, uint expected)
         {
             Assert.AreEqual(expected, Seminar1.Solution.CountCommonDividedInRange(x, y, n));
+        }
+
+        [Test]
+        [TestCase(1000u, 0u, 0u)]
+        [TestCase(0u, 0u, 1u)]
+        [TestCase(2000u, 2004u, 2u)]
+        [TestCase(2000u, 2020u, 6u)]
+        [TestCase(2000u, 2999u, 25u)]
+        [TestCase(1901u, 1999u, 24u)]
+        [TestCase(1932u, 1936u, 2u)]
+        [TestCase(1932u, 1937u, 2u)]
+        [TestCase(1932u, 1939u, 2u)]
+        [TestCase(1932u, 1940u, 2u)]
+        [TestCase(1900u, 3000u, 266u)]
+        public void TestCountLeapYearsInRange(uint begin, uint end, uint expected)
+        {
+            Assert.AreEqual(expected, Seminar1.Solution.CountLeapYearsInRange(begin, end));
         }
     }
 }
