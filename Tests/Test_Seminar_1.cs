@@ -154,6 +154,7 @@ namespace Tests
             new object[] {new Vector2(-8, -7), new Vector2(10, -7), new Vector2(-10, 7), 14},
             new object[] {new Vector2(-8, -7), new Vector2(10, -7), new Vector2(4, 2), 9},
             new object[] {new Vector2(-8, -7), new Vector2(10, -7), new Vector2(4, -2), 5},
+            new object[] {new Vector2(-8, -7), new Vector2(10, -7), new Vector2(4, -2), 5.0001d},
         };
 
         [Test]
@@ -162,7 +163,7 @@ namespace Tests
             double expected)
         {
             double distance = Seminar1.Solution.MeasureLineToPointDistance(linePointA, linePointB, point);
-            Assert.AreEqual(expected, distance);
+            Assert.AreEqual(expected, distance, 0.001);
         }
 
         public static object[] LineToPointDistanceBadLinePoints =
