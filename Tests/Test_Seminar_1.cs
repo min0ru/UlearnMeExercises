@@ -131,7 +131,7 @@ namespace Tests
         [TestCase(1997u, 1996u)]
         public void TestCountLeapYearsInRangeOutOfRangeArguments(uint begin, uint end)
         {
-            Assert.Trows<ArgumentOutOfRangeException>(
+            Assert.Throws<ArgumentOutOfRangeException>(
                 delegate { Seminar1.Solution.CountLeapYearsInRange(begin, end); });
         }
     }
