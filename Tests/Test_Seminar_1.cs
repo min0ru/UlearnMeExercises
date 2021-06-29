@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using NUnit.Framework;
 using UlearnMeExercises;
 
@@ -136,6 +137,47 @@ namespace Tests
         {
             Assert.Throws<ArgumentOutOfRangeException>(
                 delegate { Seminar1.Solution.CountLeapYearsInRange(begin, end); });
+        }
+
+        public static object[] LineToPointDistanceCases =
+        {
+            new object[] {new Vector2(0, 0), new Vector2(1, 1), new Vector2(4, 4), 0},
+            new object[] {new Vector2(4, 4), new Vector2(-4, -4), new Vector2(100, 100), 0},
+            new object[] {new Vector2(-2, 1), new Vector2(-2, -3), new Vector2(2, 5), 4},
+            new object[] {new Vector2(-2, -3), new Vector2(-2, 1), new Vector2(2, 5), 4},
+            new object[] {new Vector2(-2, -3), new Vector2(-2, 1), new Vector2(2, -5), 4},
+            new object[] {new Vector2(-2, -3), new Vector2(-2, 1), new Vector2(-4, 5), 2},
+            new object[] {new Vector2(-2, -3), new Vector2(-2, 1), new Vector2(-4, -5), 2},
+            new object[] {new Vector2(-4, -7), new Vector2(-3, -7), new Vector2(0, -7), 0},
+            new object[] {new Vector2(-8, -7), new Vector2(10, -7), new Vector2(10, -7), 0},
+            new object[] {new Vector2(-8, -7), new Vector2(10, -7), new Vector2(-10, 0), 7},
+            new object[] {new Vector2(-8, -7), new Vector2(10, -7), new Vector2(-10, 7), 14},
+            new object[] {new Vector2(-8, -7), new Vector2(10, -7), new Vector2(4, 2), 9},
+            new object[] {new Vector2(-8, -7), new Vector2(10, -7), new Vector2(4, -2), 5},
+        };
+
+        [Test]
+        [TestCaseSource(nameof(LineToPointDistanceCases))]
+        public void TestMeasureLineToPointDistance(Vector2 linePointA, Vector2 linePointB, Vector2 point,
+            double expected)
+        {
+            double distance = Seminar1.Solution.MeasureLineToPointDistance(linePointA, linePointB, point);
+            Assert.AreEqual(expected, distance);
+        }
+
+        public static object[] LineToPointDistanceBadLinePoints =
+        {
+            new object[] {new Vector2(0, 0), new Vector2(0, 0), new Vector2(1, 2)},
+            new object[] {new Vector2(1, 1), new Vector2(1, 1), new Vector2(1, 2)},
+            new object[] {new Vector2(-1, -1), new Vector2(-1, -1), new Vector2(1, 2)},
+        };
+
+        [Test]
+        [TestCaseSource(nameof(LineToPointDistanceBadLinePoints))]
+        public void TestMeasureLineToPointDistanceBadLinePoints(Vector2 linePointA, Vector2 linePointB, Vector2 point)
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(
+                delegate { Seminar1.Solution.MeasureLineToPointDistance(linePointA, linePointB, point); });
         }
     }
 }

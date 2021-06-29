@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Numerics;
 
 namespace UlearnMeExercises
 {
@@ -108,6 +109,29 @@ namespace UlearnMeExercises
             }
         }
 
+        /// <summary>
+        /// Expr6.
+        /// Посчитать расстояние от точки до прямой, заданной двумя разными точками.
+        /// </summary>
+        public static void Exercise6()
+        {
+            Console.WriteLine("=> Exercise 6 demo");
+
+            var exampleLineAndPoints = new[]
+            {
+                (new Vector2(0, 0), new Vector2(10, 10), new Vector2(3, 17)),
+                (new Vector2(-6, -17), new Vector2(3, -5), new Vector2(9, -14)),
+                (new Vector2(8, -9), new Vector2(7, 14), new Vector2(2, 3)),
+            };
+
+            foreach (var (linePointA, linePointB, point) in exampleLineAndPoints)
+            {
+                var distance = Solution.MeasureLineToPointDistance(linePointA, linePointB, point);
+                Console.WriteLine(
+                    $"Distance between line [({linePointA}), ({linePointB}] and point {point} is {distance}");
+            }
+        }
+
         public class Solution
         {
             public static (T, T) Swap<T>(T first, T second)
@@ -192,6 +216,12 @@ namespace UlearnMeExercises
                 }
 
                 return count;
+            }
+
+            public static double MeasureLineToPointDistance(Vector2 linePointA, Vector2 linePointB, Vector2 point)
+            {
+                // TODO: Implement me!
+                return 0;
             }
         }
     }
