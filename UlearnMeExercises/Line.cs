@@ -57,6 +57,12 @@ namespace UlearnMeExercises
             // return new Vector2();
         }
 
+        /// <summary>
+        /// Get unit vector parallel to Line at point (0, 0).
+        /// Vector is selected by building unit vector with slope M at zero point.
+        /// If slope is infinite than vector lays on X axis.
+        /// </summary>
+        /// <returns>Radial unit vector</returns>
         public Vector2 GetUnitParallel()
         {
             if (double.IsInfinity(M))
