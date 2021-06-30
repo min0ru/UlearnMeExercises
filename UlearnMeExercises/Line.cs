@@ -59,8 +59,14 @@ namespace UlearnMeExercises
 
         public Vector2 GetUnitParallel()
         {
-            throw new NotImplementedException(nameof(GetUnitParallel));
-            // return new Vector2();
+            if (double.IsInfinity(M))
+            {
+                return new Vector2(0, 1);
+            }
+
+            var x = 1 / (Math.Sqrt(1 + Math.Pow(M, 2)));
+            var y = M * x;
+            return new Vector2((float) x, (float) y);
         }
 
         public override string ToString()
