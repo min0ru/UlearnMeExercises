@@ -132,6 +132,33 @@ namespace UlearnMeExercises
             }
         }
 
+        /// <summary>
+        /// Expr7.
+        /// Найти вектор, параллельный прямой.
+        /// Перпендикулярный прямой.
+        /// Прямая задана коэффициентами уравнения прямой.
+        /// </summary>
+        public static void Exercise7()
+        {
+            Console.WriteLine("=> Exercise 7 demo");
+
+            var lines = new[]
+            {
+                new Line(1, 2, 3),
+                new Line(3, 2, 1),
+                new Line(1.7, 0.32, 3.4),
+                new Line(3.5, 8.4),
+                new Line(Math.PI, Math.E),
+            };
+
+            foreach (var line in lines)
+            {
+                var normal = line.GetUnitNormal();
+                var parallel = line.GetUnitParallel();
+                Console.WriteLine($"Line: {line} Normal: {normal} Parallel: {parallel}");
+            }
+        }
+
         public class Solution
         {
             public static (T, T) Swap<T>(T first, T second)
