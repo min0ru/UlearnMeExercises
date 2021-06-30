@@ -90,7 +90,9 @@ namespace Tests
         [TestCaseSource(nameof(UnitNormalTestData))]
         public static void TestGetUnitNormal(Line line, Vector2 expectedNormal)
         {
-            Assert.AreEqual(expectedNormal, line.GetUnitNormal());
+            var normal = line.GetUnitNormal();
+            Assert.AreEqual(expectedNormal, normal);
+            Assert.AreEqual(1, normal.Length(), 0.001);
         }
 
         public static object[] UnitParallelTestData =
@@ -109,7 +111,9 @@ namespace Tests
         [TestCaseSource(nameof(UnitParallelTestData))]
         public static void TestGetUnitParallel(Line line, Vector2 expectedParallel)
         {
-            Assert.AreEqual(expectedParallel, line.GetUnitParallel());
+            var parallel = line.GetUnitParallel();
+            Assert.AreEqual(expectedParallel, parallel);
+            Assert.AreEqual(1, parallel.Length(), 0.001);
         }
     }
 }
