@@ -220,18 +220,8 @@ namespace UlearnMeExercises
 
             public static double MeasureLineToPointDistance(Vector2 linePointA, Vector2 linePointB, Vector2 point)
             {
-                if (linePointA == linePointB)
-                {
-                    throw new ArgumentOutOfRangeException(nameof(linePointB));
-                }
-                    
-                var (x0, y0) = (point.X, point.Y);
-                var (x1, y1) = (linePointA.X, linePointA.Y);
-                var (x2, y2) = (linePointB.X, linePointB.Y);
-
-                var numerator = Math.Abs((x2 - x1) * (y1 - y0) - (x1 - x0) * (y2 - y1));
-                var lineLength = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
-                return numerator / lineLength;
+                var line = new Line(linePointA, linePointB);
+                return line.MeasureDistance(point);
             }
         }
     }
