@@ -5,7 +5,7 @@
     /// </summary>
     class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
             Seminar1.Exercise1();
             Seminar1.Exercise2();
@@ -13,6 +13,7 @@
             Seminar1.Exercise4();
             Seminar1.Exercise5();
             Seminar1.Exercise6();
+            Seminar1.Exercise7();
         }
     }
 }
