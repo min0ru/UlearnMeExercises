@@ -5,7 +5,7 @@ using UlearnMeExercises;
 
 namespace Tests
 {
-    public class Tests
+    public class TestsSeminar1
     {
         [Test]
         [TestCase(0, 0)]
