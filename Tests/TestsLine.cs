@@ -7,6 +7,8 @@ namespace Tests
 {
     public class TestsLine
     {
+        static float ISQR2 = (float) (1 / Math.Sqrt(2));
+
         [Test]
         [TestCase(0, 0, 0)]
         [TestCase(1, 2, 3)]
@@ -79,9 +81,9 @@ namespace Tests
             new object[] {new Line(new Vector2(-1, -1), new Vector2(1, -1)), new Vector2(0, 1)},
             new object[] {new Line(new Vector2(2, 10), new Vector2(2, -10)), new Vector2(1, 0)},
             new object[] {new Line(new Vector2(-2, 10), new Vector2(-2, -10)), new Vector2(1, 0)},
-            new object[] {new Line(new Vector2(-3, 3), new Vector2(3, -3)), new Vector2(1, 1)},
-            new object[] {new Line(new Vector2(0, 0), new Vector2(1, 1)), new Vector2(-1, 1)},
-            new object[] {new Line(new Vector2(0, 0), new Vector2(1, -1)), new Vector2(1, 1)},
+            new object[] {new Line(new Vector2(-3, 3), new Vector2(3, -3)), new Vector2(ISQR2, ISQR2)},
+            new object[] {new Line(new Vector2(0, 0), new Vector2(1, 1)), new Vector2(-ISQR2, ISQR2)},
+            new object[] {new Line(new Vector2(0, 0), new Vector2(1, -1)), new Vector2(ISQR2, ISQR2)},
         };
 
         [Test]
@@ -98,9 +100,9 @@ namespace Tests
             new object[] {new Line(new Vector2(-1, -1), new Vector2(1, -1)), new Vector2(1, 0)},
             new object[] {new Line(new Vector2(2, 10), new Vector2(2, -10)), new Vector2(0, 1)},
             new object[] {new Line(new Vector2(-2, 10), new Vector2(-2, -10)), new Vector2(0, 1)},
-            new object[] {new Line(new Vector2(-3, 3), new Vector2(3, -3)), new Vector2(1, -1)},
-            new object[] {new Line(new Vector2(0, 0), new Vector2(1, 1)), new Vector2(1, 1)},
-            new object[] {new Line(new Vector2(0, 0), new Vector2(1, -1)), new Vector2(1, -1)},
+            new object[] {new Line(new Vector2(-3, 3), new Vector2(3, -3)), new Vector2(ISQR2, -ISQR2)},
+            new object[] {new Line(new Vector2(0, 0), new Vector2(1, 1)), new Vector2(ISQR2, ISQR2)},
+            new object[] {new Line(new Vector2(0, 0), new Vector2(1, -1)), new Vector2(ISQR2, -ISQR2)},
         };
 
         [Test]
