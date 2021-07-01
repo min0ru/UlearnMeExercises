@@ -51,10 +51,15 @@ namespace UlearnMeExercises
             return Math.Abs(A * toPoint.X + B * toPoint.Y + C) / Math.Sqrt(Math.Pow(A, 2) + Math.Pow(B, 2));
         }
 
+        /// <summary>
+        /// Get unit normal for Line in point (0, 0).
+        /// Vector is calculated by getting parallel unit vector at point (0, 0) and rotating it by 90 degrees.
+        /// </summary>
+        /// <returns>Radial unit vector</returns>
         public Vector2 GetUnitNormal()
         {
-            throw new NotImplementedException(nameof(GetUnitNormal));
-            // return new Vector2();
+            var parallel = GetUnitParallel();
+            return new Vector2(-parallel.Y, parallel.X);
         }
 
         /// <summary>
