@@ -52,23 +52,12 @@ namespace UlearnMeExercises
         }
 
         /// <summary>
-        /// Get unit normal for Line in point (0, 0).
-        /// Vector is calculated by getting parallel unit vector at point (0, 0) and rotating it by 90 degrees.
-        /// </summary>
-        /// <returns>Radial unit vector</returns>
-        public Vector2 GetUnitNormal()
-        {
-            var parallel = GetUnitParallel();
-            return new Vector2(-parallel.Y, parallel.X);
-        }
-
-        /// <summary>
         /// Get unit vector parallel to Line at point (0, 0).
         /// Vector is selected by building unit vector with slope M at zero point.
         /// If slope is infinite than vector lays on X axis.
         /// </summary>
         /// <returns>Radial unit vector</returns>
-        public Vector2 GetUnitParallel()
+        public Vector2 FindParallelUnitVector()
         {
             if (double.IsInfinity(M))
             {
@@ -79,6 +68,18 @@ namespace UlearnMeExercises
             var y = M * x;
             return new Vector2((float) x, (float) y);
         }
+
+        /// <summary>
+        /// Get unit normal for Line in point (0, 0).
+        /// Vector is calculated by getting parallel unit vector at point (0, 0) and rotating it by 90 degrees.
+        /// </summary>
+        /// <returns>Radial unit vector</returns>
+        public Vector2 FindNormalUnitVector()
+        {
+            var parallel = FindParallelUnitVector();
+            return new Vector2(-parallel.Y, parallel.X);
+        }
+
 
         public override string ToString()
         {

@@ -74,28 +74,7 @@ namespace Tests
             Assert.AreEqual(expectedDistance, line.MeasureDistance(point), 0.001);
         }
 
-        public static object[] UnitNormalTestData =
-        {
-            new object[] {new Line(new Vector2(-1, 0), new Vector2(1, 0)), new Vector2(0, 1)},
-            new object[] {new Line(new Vector2(-1, 1), new Vector2(1, 1)), new Vector2(0, 1)},
-            new object[] {new Line(new Vector2(-1, -1), new Vector2(1, -1)), new Vector2(0, 1)},
-            new object[] {new Line(new Vector2(2, 10), new Vector2(2, -10)), new Vector2(-1, 0)},
-            new object[] {new Line(new Vector2(-2, 10), new Vector2(-2, -10)), new Vector2(-1, 0)},
-            new object[] {new Line(new Vector2(-3, 3), new Vector2(3, -3)), new Vector2(ISQR2, ISQR2)},
-            new object[] {new Line(new Vector2(0, 0), new Vector2(1, 1)), new Vector2(-ISQR2, ISQR2)},
-            new object[] {new Line(new Vector2(0, 0), new Vector2(1, -1)), new Vector2(ISQR2, ISQR2)},
-        };
-
-        [Test]
-        [TestCaseSource(nameof(UnitNormalTestData))]
-        public static void TestGetUnitNormal(Line line, Vector2 expectedNormal)
-        {
-            var normal = line.GetUnitNormal();
-            Assert.AreEqual(expectedNormal, normal);
-            Assert.AreEqual(1, normal.Length(), 0.001);
-        }
-
-        public static object[] UnitParallelTestData =
+        public static object[] FindParallelVectorTestData =
         {
             new object[] {new Line(new Vector2(-1, 0), new Vector2(1, 0)), new Vector2(1, 0)},
             new object[] {new Line(new Vector2(-1, 1), new Vector2(1, 1)), new Vector2(1, 0)},
@@ -108,12 +87,33 @@ namespace Tests
         };
 
         [Test]
-        [TestCaseSource(nameof(UnitParallelTestData))]
-        public static void TestGetUnitParallel(Line line, Vector2 expectedParallel)
+        [TestCaseSource(nameof(FindParallelVectorTestData))]
+        public static void TestFindParallelUnitVector(Line line, Vector2 expectedParallel)
         {
-            var parallel = line.GetUnitParallel();
+            var parallel = line.FindParallelUnitVector();
             Assert.AreEqual(expectedParallel, parallel);
             Assert.AreEqual(1, parallel.Length(), 0.001);
+        }
+
+        public static object[] FindNormalUnitVectorTestData =
+        {
+            new object[] {new Line(new Vector2(-1, 0), new Vector2(1, 0)), new Vector2(0, 1)},
+            new object[] {new Line(new Vector2(-1, 1), new Vector2(1, 1)), new Vector2(0, 1)},
+            new object[] {new Line(new Vector2(-1, -1), new Vector2(1, -1)), new Vector2(0, 1)},
+            new object[] {new Line(new Vector2(2, 10), new Vector2(2, -10)), new Vector2(-1, 0)},
+            new object[] {new Line(new Vector2(-2, 10), new Vector2(-2, -10)), new Vector2(-1, 0)},
+            new object[] {new Line(new Vector2(-3, 3), new Vector2(3, -3)), new Vector2(ISQR2, ISQR2)},
+            new object[] {new Line(new Vector2(0, 0), new Vector2(1, 1)), new Vector2(-ISQR2, ISQR2)},
+            new object[] {new Line(new Vector2(0, 0), new Vector2(1, -1)), new Vector2(ISQR2, ISQR2)},
+        };
+
+        [Test]
+        [TestCaseSource(nameof(FindNormalUnitVectorTestData))]
+        public static void TestFindNormalUnitVector(Line line, Vector2 expectedNormal)
+        {
+            var normal = line.FindNormalUnitVector();
+            Assert.AreEqual(expectedNormal, normal);
+            Assert.AreEqual(1, normal.Length(), 0.001);
         }
     }
 }

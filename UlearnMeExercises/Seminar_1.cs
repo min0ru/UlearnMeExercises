@@ -153,8 +153,8 @@ namespace UlearnMeExercises
 
             foreach (var line in lines)
             {
-                var normal = line.GetUnitNormal();
-                var parallel = line.GetUnitParallel();
+                var normal = line.FindNormalUnitVector();
+                var parallel = line.FindParallelUnitVector();
                 Console.WriteLine($"Line: {line} Normal: {normal} Parallel: {parallel}");
             }
         }
