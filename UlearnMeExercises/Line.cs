@@ -46,6 +46,10 @@ namespace UlearnMeExercises
             C = x1 * y2 - x2 * y1;
         }
 
+        /// <summary>
+        /// Measure distance from Line to Point 
+        /// </summary>
+        /// <returns>Distance to point</returns>
         public double MeasureDistance(Vector2 toPoint)
         {
             return Math.Abs(A * toPoint.X + B * toPoint.Y + C) /
