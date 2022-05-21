@@ -1,5 +1,6 @@
 using System;
 using System.Numerics;
+using System.Xml;
 
 namespace UlearnMeExercises
 {
@@ -91,9 +92,19 @@ namespace UlearnMeExercises
         /// <param name="other">Second line to intersect with</param>
         /// <returns>Is intersecting flag, Intersection point (valid only if intersects)</returns>
         /// <exception cref="NotImplementedException"></exception>
-        public Tuple<bool, Vector2> Intersect(Line other)
+        public (bool, Vector2) Intersect(Line other)
         {
-            throw new NotImplementedException(nameof(Intersect));
+            var (a1, b1, c1) = (A, B, C);
+            var (a2, b2, c2) = (other.A, other.B, other.C);
+            float xi = (float)((b1 * c2 - b2 * c1) / (a1 * b2 - a2 * b1));
+            float yi = (float)((c1 * a2 - c2 * a1) / (a1 * b2 - a2 * b1));
+            
+            // Float values does not throws ZeroDevision exception and should be checked implicitly
+            if (double.IsInfinity(xi) || double.IsInfinity(yi))
+            {
+                return (false, new Vector2(xi, yi));
+            }
+            return (true, new Vector2(xi, yi));
         }
 
         /// <summary>
