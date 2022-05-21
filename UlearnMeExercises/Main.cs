@@ -1,4 +1,6 @@
-﻿namespace UlearnMeExercises
+﻿using System;
+
+namespace UlearnMeExercises
 {
     /// <summary>
     /// Just run some examples from different exercises.
@@ -7,6 +9,7 @@
     {
         private static void Main()
         {
+            Console.WriteLine("==> Seminar 1 Exercises Demo");
             Seminar1.Exercise1();
             Seminar1.Exercise2();
             Seminar1.Exercise3();
