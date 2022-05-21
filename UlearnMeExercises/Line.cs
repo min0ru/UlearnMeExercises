@@ -5,9 +5,9 @@ namespace UlearnMeExercises
 {
     public class Line
     {
-        public double A;
-        public double B;
-        public double C;
+        public double A { get; set; }
+        public double B { get; set; }
+        public double C { get; set; }
 
         public double M => B != 0 ? -(A / B) : Double.PositiveInfinity;
         public double X0 => A != 0 ? -(C / A) : Double.PositiveInfinity;
