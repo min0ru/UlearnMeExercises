@@ -14,6 +14,7 @@
             Seminar1.Exercise5();
             Seminar1.Exercise6();
             Seminar1.Exercise7();
+            Seminar1.Exercise8();
         }
     }
 }
