@@ -7,7 +7,7 @@ namespace Tests
 {
     public static class TestsLine
     {
-        static float ISQR2 = (float) (1 / Math.Sqrt(2));
+        static float ISQR2 = (float)(1 / Math.Sqrt(2));
 
         [Test]
         [TestCase(0, 0, 0)]
@@ -35,18 +35,23 @@ namespace Tests
 
         public static object[] LineFromPointsConstructorSlopeTestData =
         {
-            new object[] {new Vector2(0, 0), new Vector2(10, 10), 1, 0},
-            new object[] {new Vector2(-10, -10), new Vector2(10, 10), 1, 0},
-            new object[] {new Vector2(-2, -1), new Vector2(2, 3), 1, 1},
-            new object[] {new Vector2(2, 3), new Vector2(-2, -1), 1, 1},
-            new object[] {new Vector2(-3, 0), new Vector2(4, -7), -1, -3},
-            new object[] {new Vector2(4, -7), new Vector2(-3, 0), -1, -3},
-            new object[] {new Vector2(1, 3), new Vector2(1, -5), double.PositiveInfinity, double.PositiveInfinity},
+            new object[] { new Vector2(0, 0), new Vector2(10, 10), 1, 0 },
+            new object[] { new Vector2(-10, -10), new Vector2(10, 10), 1, 0 },
+            new object[] { new Vector2(-2, -1), new Vector2(2, 3), 1, 1 },
+            new object[] { new Vector2(2, 3), new Vector2(-2, -1), 1, 1 },
+            new object[] { new Vector2(-3, 0), new Vector2(4, -7), -1, -3 },
+            new object[] { new Vector2(4, -7), new Vector2(-3, 0), -1, -3 },
+            new object[]
+            {
+                new Vector2(1, 3), new Vector2(1, -5), double.PositiveInfinity,
+                double.PositiveInfinity
+            },
         };
 
         [Test]
         [TestCaseSource(nameof(LineFromPointsConstructorSlopeTestData))]
-        public static void TestSlopeWithLineFromPointsConstructor(Vector2 pointA, Vector2 pointB, double expectedM,
+        public static void TestSlopeWithLineFromPointsConstructor(Vector2 pointA, Vector2 pointB,
+            double expectedM,
             double expectedY0)
         {
             var line = new Line(pointA, pointB);
@@ -56,34 +61,39 @@ namespace Tests
 
         public static object[] DistanceToPointTestData =
         {
-            new object[] {new Line(1, 0), new Vector2(1, 1), 0},
-            new object[] {new Line(1, 0), new Vector2(-1, -1), 0},
-            new object[] {new Line(1, 0), new Vector2(0, 0), 0},
-            new object[] {new Line(1, 0), new Vector2(1, -1), Math.Sqrt(2)},
-            new object[] {new Line(1, 0), new Vector2(-1, 1), Math.Sqrt(2)},
-            new object[] {new Line(-1, 5), new Vector2(0, 0), 2.5 * Math.Sqrt(2)},
-            new object[] {new Line(-1, 5), new Vector2(-0.5f, -2.5f), 4 * Math.Sqrt(2)},
-            new object[] {new Line(new Vector2(-5, 3), new Vector2(5, 3)), new Vector2(-2, -2), 5},
-            new object[] {new Line(new Vector2(-5, 3), new Vector2(5, 3)), new Vector2(3, 5), 2},
+            new object[] { new Line(1, 0), new Vector2(1, 1), 0 },
+            new object[] { new Line(1, 0), new Vector2(-1, -1), 0 },
+            new object[] { new Line(1, 0), new Vector2(0, 0), 0 },
+            new object[] { new Line(1, 0), new Vector2(1, -1), Math.Sqrt(2) },
+            new object[] { new Line(1, 0), new Vector2(-1, 1), Math.Sqrt(2) },
+            new object[] { new Line(-1, 5), new Vector2(0, 0), 2.5 * Math.Sqrt(2) },
+            new object[] { new Line(-1, 5), new Vector2(-0.5f, -2.5f), 4 * Math.Sqrt(2) },
+            new object[]
+                { new Line(new Vector2(-5, 3), new Vector2(5, 3)), new Vector2(-2, -2), 5 },
+            new object[] { new Line(new Vector2(-5, 3), new Vector2(5, 3)), new Vector2(3, 5), 2 },
         };
 
         [Test]
         [TestCaseSource(nameof(DistanceToPointTestData))]
-        public static void TestMeasureDistanceToPoint(Line line, Vector2 point, double expectedDistance)
+        public static void TestMeasureDistanceToPoint(Line line, Vector2 point,
+            double expectedDistance)
         {
             Assert.AreEqual(expectedDistance, line.MeasureDistance(point), 0.001);
         }
 
         public static object[] FindParallelVectorTestData =
         {
-            new object[] {new Line(new Vector2(-1, 0), new Vector2(1, 0)), new Vector2(1, 0)},
-            new object[] {new Line(new Vector2(-1, 1), new Vector2(1, 1)), new Vector2(1, 0)},
-            new object[] {new Line(new Vector2(-1, -1), new Vector2(1, -1)), new Vector2(1, 0)},
-            new object[] {new Line(new Vector2(2, 10), new Vector2(2, -10)), new Vector2(0, 1)},
-            new object[] {new Line(new Vector2(-2, 10), new Vector2(-2, -10)), new Vector2(0, 1)},
-            new object[] {new Line(new Vector2(-3, 3), new Vector2(3, -3)), new Vector2(ISQR2, -ISQR2)},
-            new object[] {new Line(new Vector2(0, 0), new Vector2(1, 1)), new Vector2(ISQR2, ISQR2)},
-            new object[] {new Line(new Vector2(0, 0), new Vector2(1, -1)), new Vector2(ISQR2, -ISQR2)},
+            new object[] { new Line(new Vector2(-1, 0), new Vector2(1, 0)), new Vector2(1, 0) },
+            new object[] { new Line(new Vector2(-1, 1), new Vector2(1, 1)), new Vector2(1, 0) },
+            new object[] { new Line(new Vector2(-1, -1), new Vector2(1, -1)), new Vector2(1, 0) },
+            new object[] { new Line(new Vector2(2, 10), new Vector2(2, -10)), new Vector2(0, 1) },
+            new object[] { new Line(new Vector2(-2, 10), new Vector2(-2, -10)), new Vector2(0, 1) },
+            new object[]
+                { new Line(new Vector2(-3, 3), new Vector2(3, -3)), new Vector2(ISQR2, -ISQR2) },
+            new object[]
+                { new Line(new Vector2(0, 0), new Vector2(1, 1)), new Vector2(ISQR2, ISQR2) },
+            new object[]
+                { new Line(new Vector2(0, 0), new Vector2(1, -1)), new Vector2(ISQR2, -ISQR2) },
         };
 
         [Test]
@@ -97,14 +107,18 @@ namespace Tests
 
         public static object[] FindNormalUnitVectorTestData =
         {
-            new object[] {new Line(new Vector2(-1, 0), new Vector2(1, 0)), new Vector2(0, 1)},
-            new object[] {new Line(new Vector2(-1, 1), new Vector2(1, 1)), new Vector2(0, 1)},
-            new object[] {new Line(new Vector2(-1, -1), new Vector2(1, -1)), new Vector2(0, 1)},
-            new object[] {new Line(new Vector2(2, 10), new Vector2(2, -10)), new Vector2(-1, 0)},
-            new object[] {new Line(new Vector2(-2, 10), new Vector2(-2, -10)), new Vector2(-1, 0)},
-            new object[] {new Line(new Vector2(-3, 3), new Vector2(3, -3)), new Vector2(ISQR2, ISQR2)},
-            new object[] {new Line(new Vector2(0, 0), new Vector2(1, 1)), new Vector2(-ISQR2, ISQR2)},
-            new object[] {new Line(new Vector2(0, 0), new Vector2(1, -1)), new Vector2(ISQR2, ISQR2)},
+            new object[] { new Line(new Vector2(-1, 0), new Vector2(1, 0)), new Vector2(0, 1) },
+            new object[] { new Line(new Vector2(-1, 1), new Vector2(1, 1)), new Vector2(0, 1) },
+            new object[] { new Line(new Vector2(-1, -1), new Vector2(1, -1)), new Vector2(0, 1) },
+            new object[] { new Line(new Vector2(2, 10), new Vector2(2, -10)), new Vector2(-1, 0) },
+            new object[]
+                { new Line(new Vector2(-2, 10), new Vector2(-2, -10)), new Vector2(-1, 0) },
+            new object[]
+                { new Line(new Vector2(-3, 3), new Vector2(3, -3)), new Vector2(ISQR2, ISQR2) },
+            new object[]
+                { new Line(new Vector2(0, 0), new Vector2(1, 1)), new Vector2(-ISQR2, ISQR2) },
+            new object[]
+                { new Line(new Vector2(0, 0), new Vector2(1, -1)), new Vector2(ISQR2, ISQR2) },
         };
 
         [Test]

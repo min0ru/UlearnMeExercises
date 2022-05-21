@@ -48,7 +48,8 @@ namespace UlearnMeExercises
 
         public double MeasureDistance(Vector2 toPoint)
         {
-            return Math.Abs(A * toPoint.X + B * toPoint.Y + C) / Math.Sqrt(Math.Pow(A, 2) + Math.Pow(B, 2));
+            return Math.Abs(A * toPoint.X + B * toPoint.Y + C) /
+                   Math.Sqrt(Math.Pow(A, 2) + Math.Pow(B, 2));
         }
 
         /// <summary>
