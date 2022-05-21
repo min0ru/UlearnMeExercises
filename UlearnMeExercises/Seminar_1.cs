@@ -159,7 +159,32 @@ namespace UlearnMeExercises
             }
         }
 
-        public class Solution
+        /// <summary>
+        /// Expr8.
+        /// Дана прямая L и точка A.
+        /// Найти точку пересечения прямой L с перпендикулярной ей прямой P, проходящей через точку A.
+        /// Можете считать, что прямая задана либо двумя точками, либо коэффициентами уравнения прямой — как вам удобнее.
+        /// </summary>
+        public static void Exercise8()
+        {
+            Console.WriteLine("=> Exercise 8 demo");
+
+            var linesAndPoints = new[]
+            {
+                (new Line(3, 14), new Vector2(-7, 12)),
+                (new Line(9, 2), new Vector2(6, 8)),
+                (new Line(3.14, -14.02), new Vector2(14.71f, 13.66f)),
+                (new Line(17, -4.39), new Vector2(1.11f, 2.21f)),
+            };
+            
+            foreach (var (line, point) in linesAndPoints)
+            {
+                var projection = line.Project(point);
+                Console.WriteLine($"Point({point}) orthogonal projection on Line({line} is {projection}");
+            }
+        }
+
+        public static class Solution
         {
             public static (T, T) Swap<T>(T first, T second)
             {
