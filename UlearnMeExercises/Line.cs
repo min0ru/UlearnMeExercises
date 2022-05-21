@@ -80,6 +80,28 @@ namespace UlearnMeExercises
             return new Vector2(-parallel.Y, parallel.X);
         }
 
+        /// <summary>
+        /// Find intersection point of two lines.
+        /// </summary>
+        /// <param name="other">Second line to intersect with</param>
+        /// <returns>Is intersecting flag, Intersection point (valid only if intersects)</returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public Tuple<bool, Vector2> Intersect(Line other)
+        {
+            throw new NotImplementedException(nameof(Intersect));
+        }
+
+        /// <summary>
+        /// Find orthogonal projection of a point on this line.
+        /// </summary>
+        /// <param name="point">Point to project</param>
+        /// <returns>Projection point on line</returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public Vector2 Project(Vector2 point)
+        {
+            throw new NotImplementedException(nameof(Project));
+        }
+
 
         public override string ToString()
         {

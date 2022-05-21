@@ -115,5 +115,127 @@ namespace Tests
             Assert.AreEqual(expectedNormal, normal);
             Assert.AreEqual(1, normal.Length(), 0.001);
         }
+
+
+        public static object[] FindLinesIntersectionTestData =
+        {
+            new object[]
+            {
+                new Line(new Vector2(0, -4), new Vector2(0, 4)),
+                new Line(new Vector2(-4, 0), new Vector2(4, 0)),
+                true,
+                new Vector2(0, 0)
+            },
+            new object[]
+            {
+                new Line(new Vector2(-4, 0), new Vector2(4, 0)),
+                new Line(new Vector2(0, -4), new Vector2(0, 4)),
+                true,
+                new Vector2(0, 0)
+            },
+            new object[]
+            {
+                new Line(new Vector2(3, -4), new Vector2(3, 4)),
+                new Line(new Vector2(-4, 6), new Vector2(4, 6)),
+                true,
+                new Vector2(3, 6)
+            },
+            new object[]
+            {
+                new Line(new Vector2(0, 0), new Vector2(2, 2)),
+                new Line(new Vector2(-6, 6), new Vector2(4, -4)),
+                true,
+                new Vector2(0, 0)
+            },
+            new object[]
+            {
+                new Line(new Vector2(-7, -2), new Vector2(3, 2)),
+                new Line(new Vector2(-7, 4), new Vector2(-7, -4)),
+                true,
+                new Vector2(-7, -2)
+            },
+            new object[]
+            {
+                new Line(new Vector2(-7, -2), new Vector2(3, 2)),
+                new Line(new Vector2(2, 8), new Vector2(3, 2)),
+                true,
+                new Vector2(3, 2)
+            },
+            new object[]
+            {
+                new Line(new Vector2(-7, -2), new Vector2(3, 2)),
+                new Line(new Vector2(-1, 6), new Vector2(-3, -6)),
+                true,
+                new Vector2(-2, 0)
+            },
+            new object[]
+            {
+                new Line(new Vector2(-7, -2), new Vector2(3, 2)),
+                new Line(new Vector2(-2, -4), new Vector2(2, -4)),
+                true,
+                new Vector2(-12, -4)
+            },
+            // Non intersecting examples
+            new object[]
+            {
+                new Line(new Vector2(-7, -2), new Vector2(3, 2)),
+                new Line(new Vector2(-7, 2), new Vector2(3, 6)),
+                false,
+                new Vector2(0, 0)
+            },
+            // Same lines, but intersection point is not valid
+            new object[]
+            {
+                new Line(new Vector2(-7, -2), new Vector2(3, 2)),
+                new Line(new Vector2(-7, 2), new Vector2(3, 6)),
+                false,
+                new Vector2(100, 100)
+            },
+            new object[]
+            {
+                new Line(new Vector2(-5, 0), new Vector2(5, 0)),
+                new Line(new Vector2(-10, 2), new Vector2(10, 2)),
+                false,
+                new Vector2(int.MaxValue, int.MaxValue)
+            },
+            new object[]
+            {
+                new Line(new Vector2(-3, 10), new Vector2(-3, -10)),
+                new Line(new Vector2(0, 20), new Vector2(0, -20)),
+                false,
+                new Vector2(int.MinValue, int.MinValue)
+            },
+        };
+
+        [Test]
+        [TestCaseSource(nameof(FindLinesIntersectionTestData))]
+        public static void TestLinesIntersection(Line line, Line other, bool isIntersectsExpected,
+            Vector2 expected)
+        {
+            var (isIntersects, intersection) = line.Intersect(other);
+            var (isIntersectsInverted, invertedIntersection) = other.Intersect(line);
+            Assert.AreEqual(isIntersects, isIntersectsInverted);
+            Assert.AreEqual(isIntersects, isIntersectsExpected);
+
+            // Checking for valid intersection point only in case if lines does intersect.
+            if (isIntersects)
+            {
+                Assert.AreEqual(intersection, invertedIntersection);
+                Assert.AreEqual(expected, intersection);
+            }
+        }
+
+        public static object[] FindPointProjectionTestData =
+        {
+            //TODO: Create test data
+        };
+
+        [Test]
+        [TestCaseSource(nameof(FindPointProjectionTestData))]
+        public static void TestPointProjection(Line line, Vector2 point, Vector2 expected)
+        {
+            var projection = line.Project(point);
+            Assert.AreEqual(expected, projection);
+        }
     }
 }
