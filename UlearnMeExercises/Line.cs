@@ -71,7 +71,7 @@ namespace UlearnMeExercises
 
             var x = 1 / (Math.Sqrt(1 + Math.Pow(M, 2)));
             var y = M * x;
-            return new Vector2((float) x, (float) y);
+            return new Vector2((float)x, (float)y);
         }
 
         /// <summary>
