@@ -5,7 +5,7 @@ using UlearnMeExercises;
 
 namespace Tests
 {
-    public class TestsLine
+    public static class TestsLine
     {
         static float ISQR2 = (float) (1 / Math.Sqrt(2));
 

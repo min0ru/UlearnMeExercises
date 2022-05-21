@@ -5,7 +5,7 @@ namespace UlearnMeExercises
     /// <summary>
     /// Just run some examples from different exercises.
     /// </summary>
-    class Program
+    static class Program
     {
         private static void Main()
         {
