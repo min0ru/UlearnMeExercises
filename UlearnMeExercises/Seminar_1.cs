@@ -180,7 +180,7 @@ namespace UlearnMeExercises
             foreach (var (line, point) in linesAndPoints)
             {
                 var projection = line.Project(point);
-                Console.WriteLine($"Point({point}) orthogonal projection on Line({line} is {projection}");
+                Console.WriteLine($"Point({point}) orthogonal projection on {line} is {projection}");
             }
         }
 
