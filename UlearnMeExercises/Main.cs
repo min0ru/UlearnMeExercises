@@ -18,6 +18,11 @@ namespace UlearnMeExercises
             Seminar1.Exercise6();
             Seminar1.Exercise7();
             Seminar1.Exercise8();
+            Console.WriteLine("==> Seminar 2 Exercises Demo");
+            Seminar2.Exercise10();
+            Seminar2.Exercise11();
+            Seminar2.Exercise12();
+            Seminar2.Exercise13();
         }
     }
 }
