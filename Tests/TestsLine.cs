@@ -256,8 +256,8 @@ namespace Tests
             new object[]
             {
                 new Line(new Vector2(0, 0), new Vector2(0, 1)),
-                new Vector2(-3, 0),
-                new Vector2(-3, 0),
+                new Vector2(0, -3),
+                new Vector2(0, -3),
             },
             new object[]
             {
@@ -273,37 +273,37 @@ namespace Tests
             },
             new object[]
             {
-                new Line(new Vector2(-6, 2), new Vector2(6, 2)),
+                new Line(new Vector2(-6, 2), new Vector2(6, -2)),
                 new Vector2(1, 3),
                 new Vector2(0, 0),
             },
             new object[]
             {
-                new Line(new Vector2(-6, 2), new Vector2(6, 2)),
+                new Line(new Vector2(-6, 2), new Vector2(6, -2)),
                 new Vector2(-1, -3),
                 new Vector2(0, 0),
             },
             new object[]
             {
-                new Line(new Vector2(-6, 2), new Vector2(6, 2)),
+                new Line(new Vector2(-6, 2), new Vector2(6, -2)),
                 new Vector2(5, 5),
                 new Vector2(3, -1),
             },
             new object[]
             {
-                new Line(new Vector2(-6, 2), new Vector2(6, 2)),
+                new Line(new Vector2(-6, 2), new Vector2(6, -2)),
                 new Vector2(1, -7),
-                new Vector2(3, 1),
+                new Vector2(3, -1),
             },
             new object[]
             {
-                new Line(new Vector2(-6, 2), new Vector2(6, 2)),
+                new Line(new Vector2(-6, 2), new Vector2(6, -2)),
                 new Vector2(-4, 8),
                 new Vector2(-6, 2),
             },
             new object[]
             {
-                new Line(new Vector2(-6, 2), new Vector2(6, 2)),
+                new Line(new Vector2(-6, 2), new Vector2(6, -2)),
                 new Vector2(-7, -1),
                 new Vector2(-6, 2),
             },
