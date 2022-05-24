@@ -114,7 +114,10 @@ namespace UlearnMeExercises
         /// <exception cref="NotImplementedException"></exception>
         public Vector2 Project(Vector2 point)
         {
-            throw new NotImplementedException(nameof(Project));
+            var normal = FindNormalUnitVector();
+            var pointNormal = new Line(point, point + normal);
+            var (_, intersectionPoint) = Intersect(pointNormal);
+            return intersectionPoint;
         }
 
 
