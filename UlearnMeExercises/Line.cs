@@ -1,6 +1,5 @@
 using System;
 using System.Numerics;
-using System.Xml;
 
 namespace UlearnMeExercises
 {
@@ -96,8 +95,8 @@ namespace UlearnMeExercises
         {
             var (a1, b1, c1) = (A, B, C);
             var (a2, b2, c2) = (other.A, other.B, other.C);
-            float xi = (float)((b1 * c2 - b2 * c1) / (a1 * b2 - a2 * b1));
-            float yi = (float)((c1 * a2 - c2 * a1) / (a1 * b2 - a2 * b1));
+            float xi = (float)Math.Round((b1 * c2 - b2 * c1) / (a1 * b2 - a2 * b1), 3);
+            float yi = (float)Math.Round((c1 * a2 - c2 * a1) / (a1 * b2 - a2 * b1), 3);
             
             // Float values does not throws ZeroDevision exception and should be checked implicitly
             if (double.IsInfinity(xi) || double.IsInfinity(yi))
