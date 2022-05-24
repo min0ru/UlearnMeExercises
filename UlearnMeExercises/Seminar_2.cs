@@ -14,6 +14,13 @@ namespace UlearnMeExercises
         public static void Exercise10()
         {
             Console.WriteLine("=> Excercise 10 demo");
+            int sum;
+            sum = Solution.SumNumbersWithDividers(0, 10, new int[] { 3, 5 });
+            Console.WriteLine($"Sum of numbers that is divided by 3 and 5 from 0 to 10 is {sum}");
+            sum = Solution.SumNumbersWithDividers(0, 100, new int[] { 3, 5 });
+            Console.WriteLine($"Sum of numbers that is divided by 3 and 5 from 0 to 100 is {sum}");
+            sum = Solution.SumNumbersWithDividers(0, 1000, new int[] { 3, 5 });
+            Console.WriteLine($"Sum of numbers that is divided by 3 and 5 from 0 to 1000 is {sum}");
         }
 
         /// <summary>
@@ -58,6 +65,23 @@ namespace UlearnMeExercises
 
         public static class Solution
         {
+            public static int SumNumbersWithDividers(int from, int to, int[] dividers)
+            {
+                int sum = 0;
+                for (int i = from; i < to; i++)
+                {
+                    foreach (var divider in dividers)
+                    {
+                        if (i % divider == 0)
+                        {
+                            sum += i;
+                            break;
+                        }
+                    }
+                }
+
+                return sum;
+            }
         }
     }
 }
