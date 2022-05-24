@@ -20,5 +20,47 @@ namespace Tests
             var sum = Seminar2.Solution.SumNumbersWithDividers(from, to, dividers);
             Assert.AreEqual(sum, expected);
         }
+
+        [Test]
+        [TestCase(0, 0, 0)]
+        [TestCase(1, 5, 0)]
+        [TestCase(2, 10, 0)]
+        [TestCase(3, 15, 0)]
+        [TestCase(5, 25, 0)]
+        [TestCase(6, 30, 0)]
+        [TestCase(10, 50, 0)]
+        [TestCase(12, 0, 0)]
+        [TestCase(13, 5, 0)]
+        [TestCase(14, 10, 0)]
+        [TestCase(15, 15, 0)]
+        [TestCase(20, 40, 0)]
+        [TestCase(22, 50, 0)]
+        [TestCase(0, 1, 7.5)]
+        [TestCase(0, 2, 15)]
+        [TestCase(0, 3, 22.5)]
+        [TestCase(0, 4, 30)]
+        [TestCase(0, 5, 37.5)]
+        [TestCase(0, 15, 90)]
+        [TestCase(0, 16, 97.5)]
+        [TestCase(0, 25, 150)]
+        [TestCase(0, 30, 180)]
+        [TestCase(0, 31, 172.5)]
+        [TestCase(0, 32, 165)]
+        [TestCase(0, 40, 120)]
+        [TestCase(0, 41, 112.5)]
+        [TestCase(3, 15, 0)]
+        [TestCase(3, 45, 180)]
+        [TestCase(4, 5, 90)]
+        [TestCase(18, 25, 30)]
+        [TestCase(19, 10, 150)]
+        [TestCase(10, 49, 7.5)]
+        [TestCase(10, 51, 7.5)]
+        [TestCase(8, 43, 22.5)]
+        [TestCase(19, 18, 105)]
+        public void TestCalculateAngleBetweenClockArrows(int hour, int minute, double expected)
+        {
+            double angle = Seminar2.Solution.CalculateAngleBetweenClockArrows(hour, minute);
+            Assert.AreEqual(expected, angle, 0.001);
+        }
     }
 }

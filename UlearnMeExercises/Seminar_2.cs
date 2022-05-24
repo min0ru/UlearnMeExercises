@@ -82,6 +82,11 @@ namespace UlearnMeExercises
 
                 return sum;
             }
+
+            public static double CalculateAngleBetweenClockArrows(int hour, int minute)
+            {
+                throw new NotImplementedException("Implement me first!");
+            }
         }
     }
 }
