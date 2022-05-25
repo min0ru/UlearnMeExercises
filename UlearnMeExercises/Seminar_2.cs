@@ -85,7 +85,18 @@ namespace UlearnMeExercises
 
             public static double CalculateAngleBetweenClockArrows(int hour, int minute)
             {
-                throw new NotImplementedException("Implement me first!");
+                int maxHour = 12;
+                int maxMinute = 60;
+                double degreePerHour = 360.0 / maxHour;
+                double degreePerMinute = 360.0 / maxMinute;
+                
+                hour %= maxHour;
+                var hourArrowAngle = (360.0 / 12) * hour;
+                var minuteArrowAngle = (360.0 / 60) * minute;
+                var angle = Math.Abs(hourArrowAngle - minuteArrowAngle);
+                angle = angle > 180 ? 180 - (angle % 180) : angle;
+                
+                return angle;
             }
         }
     }
