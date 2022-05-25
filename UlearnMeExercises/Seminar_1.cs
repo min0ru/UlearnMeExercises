@@ -186,6 +186,13 @@ namespace UlearnMeExercises
 
         public static class Solution
         {
+            /// <summary>
+            /// Swaps two variables of arbitrary type.
+            /// </summary>
+            /// <param name="first">First variable.</param>
+            /// <param name="second">Second variable.</param>
+            /// <typeparam name="T">Type of both variables.</typeparam>
+            /// <returns>Value tuple of a swapped wariables.</returns>
             public static (T, T) Swap<T>(T first, T second)
             {
                 (first, second) = (second, first);
@@ -197,6 +204,11 @@ namespace UlearnMeExercises
                 return new string(text.Reverse().ToArray());
             }
 
+            /// <summary>
+            /// Calculates palindrome of the integer value. (Rotates digits).
+            /// </summary>
+            /// <param name="number">Integer value.</param>
+            /// <returns>Integer value of a palindrome.</returns>
             public static int RotateInteger(int number)
             {
                 string textRepresentation = number.ToString();
@@ -204,6 +216,12 @@ namespace UlearnMeExercises
                 return int.Parse(textRepresentation);
             }
 
+            /// <summary>
+            /// Calculates angle in degrees between hour and minute arrow of a clocks at hour begin.
+            /// </summary>
+            /// <param name="hour">Hour on the clocks in interval [0-24).</param>
+            /// <returns>Degree angle between clock arrows.</returns>
+            /// <exception cref="ArgumentOutOfRangeException">Throws in case of wrong hour value.</exception>
             public static int MeasureClockArrowsAngle(uint hour)
             {
                 if (hour >= 24)
@@ -226,10 +244,10 @@ namespace UlearnMeExercises
             /// <summary>
             /// Count numbers that is divided by both "x" and "y" in range (0, n].
             /// </summary>
-            /// <param name="x">First Divisor</param>
-            /// <param name="y">Second Divisor</param>
-            /// <param name="n">Range (0, n] to search for divided numbers</param>
-            /// <returns>Resulting count of divided numbers</returns>
+            /// <param name="x">First Divisor.</param>
+            /// <param name="y">Second Divisor.</param>
+            /// <param name="n">Range (0, n] to search for divided numbers.</param>
+            /// <returns>Resulting count of divided numbers.</returns>
             public static uint CountCommonDividedInRange(uint x, uint y, uint n)
             {
                 uint count = 0;
@@ -247,9 +265,9 @@ namespace UlearnMeExercises
             /// <summary>
             /// Count number of leap years in dates range [begin, end].
             /// </summary>
-            /// <param name="begin">Begin year</param>
-            /// <param name="end">End year</param>
-            /// <returns>Number of leap years</returns>
+            /// <param name="begin">Begin year.</param>
+            /// <param name="end">End year.</param>
+            /// <returns>Number of leap years.</returns>
             public static uint CountLeapYearsInRange(uint begin, uint end)
             {
                 if (end < begin)
@@ -270,6 +288,13 @@ namespace UlearnMeExercises
                 return count;
             }
 
+            /// <summary>
+            /// Measures distance between line and point. Line given as two points.
+            /// </summary>
+            /// <param name="linePointA">First point of line.</param>
+            /// <param name="linePointB">Second point of line.</param>
+            /// <param name="point">Point to measure distance from.</param>
+            /// <returns>Distance.</returns>
             public static double MeasureLineToPointDistance(Vector2 linePointA, Vector2 linePointB, Vector2 point)
             {
                 var line = new Line(linePointA, linePointB);

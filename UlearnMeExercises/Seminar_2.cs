@@ -65,6 +65,13 @@ namespace UlearnMeExercises
 
         public static class Solution
         {
+            /// <summary>
+            /// Calculates sum of numbers in interval [from, to) dividable by one of given divisors. 
+            /// </summary>
+            /// <param name="from">Interval begin (included).</param>
+            /// <param name="to">Interval end (excluded).</param>
+            /// <param name="dividers">Array of divisors to test on.</param>
+            /// <returns>Sum of numbers.</returns>
             public static int SumNumbersWithDividers(int from, int to, int[] dividers)
             {
                 int sum = 0;
@@ -83,6 +90,12 @@ namespace UlearnMeExercises
                 return sum;
             }
 
+            /// <summary>
+            /// Calculates angle between hour and minute arrow of clocks in degrees.
+            /// </summary>
+            /// <param name="hour">Hour between [0, 24).</param>
+            /// <param name="minute">Minute between [0, 60).</param>
+            /// <returns>Angle in degrees.</returns>
             public static double CalculateAngleBetweenClockArrows(int hour, int minute)
             {
                 int maxHour = 12;
