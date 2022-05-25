@@ -31,6 +31,21 @@ namespace UlearnMeExercises
         public static void Exercise11()
         {
             Console.WriteLine("=> Excercise 11 demo");
+            var exampleClocks = new[]
+            {
+                (0, 0),
+                (10, 20),
+                (23, 54),
+                (18, 57),
+                (13, 21),
+            };
+
+            foreach (var (hour, minute) in exampleClocks)
+            {
+                var angle = Solution.CalculateAngleBetweenClockArrows(hour, minute);
+                Console.WriteLine(
+                    $"Angle between clock arrows at {hour}:{minute} is {angle} degrees.");
+            }
         }
 
         /// <summary>
@@ -102,13 +117,13 @@ namespace UlearnMeExercises
                 int maxMinute = 60;
                 double degreePerHour = 360.0 / maxHour;
                 double degreePerMinute = 360.0 / maxMinute;
-                
+
                 hour %= maxHour;
                 var hourArrowAngle = (360.0 / 12) * hour;
                 var minuteArrowAngle = (360.0 / 60) * minute;
                 var angle = Math.Abs(hourArrowAngle - minuteArrowAngle);
                 angle = angle > 180 ? 180 - (angle % 180) : angle;
-                
+
                 return angle;
             }
         }
