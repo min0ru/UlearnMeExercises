@@ -62,5 +62,20 @@ namespace Tests
             double angle = Seminar2.Solution.CalculateAngleBetweenClockArrows(hour, minute);
             Assert.AreEqual(expected, angle, 0.001);
         }
+
+        [Test]
+        [TestCase(10000, 500, 50, 10)]
+        public void TestCalculateMinMaxTimeOfBlockedEarsOnPlane(
+            int h,
+            int t,
+            int v,
+            int x,
+            double expectedTmin,
+            double expectedTmax)
+        {
+            var (tMin, tMax) = Seminar2.Solution.CalculateMinMaxTimeOfBlockedEarsOnPlane(h, t, v, x);
+            Assert.AreEqual(tMin, expectedTmin, 1e-6);
+            Assert.AreEqual(tMax, expectedTmax, 1e-6);
+        }
     }
 }

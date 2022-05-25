@@ -126,6 +126,16 @@ namespace UlearnMeExercises
 
                 return angle;
             }
+
+            public static (double tMin, double tMax) CalculateMinMaxTimeOfBlockedEarsOnPlane(
+                int h,
+                int t,
+                int v,
+                int x
+            )
+            {
+                throw new NotImplementedException("Implement me!");
+            }
         }
     }
 }
